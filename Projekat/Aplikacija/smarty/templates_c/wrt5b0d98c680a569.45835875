@@ -1,0 +1,351 @@
+<?php /* Smarty version Smarty-3.1.13, created on 2018-05-29 18:15:34
+         compiled from "tpl\index.tpl" */ ?>
+<?php /*%%SmartyHeaderCode:255695375ce8158dc47-92669242%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+$_valid = $_smarty_tpl->decodeProperties(array (
+  'file_dependency' => 
+  array (
+    'db97a3f8af80d260372ece8474eb31d980e7a586' => 
+    array (
+      0 => 'tpl\\index.tpl',
+      1 => 1527617732,
+      2 => 'file',
+    ),
+  ),
+  'nocache_hash' => '255695375ce8158dc47-92669242',
+  'function' => 
+  array (
+  ),
+  'version' => 'Smarty-3.1.13',
+  'unifunc' => 'content_5375ce81d57091_73764269',
+  'variables' => 
+  array (
+    'zanati' => 0,
+    'zanat' => 0,
+    'lokacije' => 0,
+    'lokacija' => 0,
+    'najboljeOcenjen' => 0,
+    'ocenjen' => 0,
+    'onlineMajstor' => 0,
+    'oM' => 0,
+  ),
+  'has_nocache_code' => false,
+),false); /*/%%SmartyHeaderCode%%*/?>
+<?php if ($_valid && !is_callable('content_5375ce81d57091_73764269')) {function content_5375ce81d57091_73764269($_smarty_tpl) {?><!DOCTYPE html>
+<html>
+<title>MajstorBOB | Početna strana</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">-->
+<link rel="stylesheet" href="tpl/style.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
+</style>
+<body class="w3-light-grey">
+
+<!-- Navigation Bar -->
+<div class="w3-bar w3-white w3-large">
+    <a href="#" class="w3-bar-item w3-button w3-red w3-mobile"><i class="fa fa-cogs w3-margin-right"></i>MajstorBob</a>
+    <a href="#rooms" class="w3-bar-item w3-button w3-mobile">Moj profil</a>
+    <a href="#rooms" class="w3-bar-item w3-button w3-mobile">Poruke</a>
+    <a href="#about" class="w3-bar-item w3-button w3-mobile">Pomoć</a>
+    <a href="#contact" class="w3-bar-item w3-button w3-mobile">O nama</a>
+    <a href="#contact" class="w3-bar-item w3-button w3-right w3-red w3-mobile">Uloguj se</a>
+    <a href="#contact" class="w3-bar-item w3-button w3-right w3-red w3-mobile">Prijavi se</a>
+</div>
+<!-- Header -->
+<header class="w3-display-container w3-content" style="max-width:1500px;">
+    <img class="w3-image" src="slike/bob1.png" alt="The Hotel" style="min-width:1000px" width="1500" height="800">
+    <div class="w3-display-left w3-padding w3-col l6 m8">
+        <div class="w3-container w3-red">
+            <h2><i class="fa fa-gavel w3-margin-right"></i>Pronađi slobodne majstore</h2>
+        </div>
+        <div class="w3-container w3-white w3-padding-16">
+            <form action="vratiMajstore.php" target="_blank">
+
+                <div class="w3-row-padding" style="margin:8px -16px;">
+                    <div class="w3-half w3-margin-bottom">
+                        <!--<label><i class="fa fa-wrench"></i> Kategorija posla</label>
+                        <input class="w3-input w3-border" type="text" placeholder="Građevina, elektronika, stolarija..." name="kategorijaPosla" required>
+                        -->
+                        <label><i class="fa fa-wrench"></i> Kategorija posla</label>
+                        <select>
+                            <?php  $_smarty_tpl->tpl_vars['zanat'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['zanat']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['zanati']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['zanat']->key => $_smarty_tpl->tpl_vars['zanat']->value){
+$_smarty_tpl->tpl_vars['zanat']->_loop = true;
+?>
+                            <option value="<?php echo $_smarty_tpl->tpl_vars['zanat']->value->tip;?>
+"><?php echo $_smarty_tpl->tpl_vars['zanat']->value->tip;?>
+</option>
+                            <?php } ?>
+                        </select>
+                    </div>
+                    <div class="w3-half">
+                        <label><i class="fa fa-child"></i> Vrsta posla</label>
+                        <input class="w3-input w3-border" type="text" placeholder="Varenje, bravarija, zidanje..." name="vrstaPosla" required>
+                    </div>
+                </div>
+                <div class="w3-row-padding" style="margin:0 -16px;">
+                    <div class="w3-half w3-margin-bottom">
+                        <label><i class="fa fa-calendar-o"></i> Datum početka radova</label>
+                        <input class="w3-input w3-border" type="text" placeholder="DD MM GGGG" name="datumPocetka" required>
+                    </div>
+                    <div class="w3-half">
+                        <label><i class="fa fa-clock-o"></i> Broj radnih dana</label>
+                        <input class="w3-input w3-border" type="number" value="0" name="brojRadnihDana" min="0" max="1000" required>
+                    </div>
+                </div>
+                <div class="w3-row-padding" style="margin:8px -16px;">
+                    <div class="w3-half w3-margin-bottom">
+                        <!--<label><i class="fa fa-map"></i> Grad</label>
+                        <input class="w3-input w3-border" type="text" placeholder="Beograd, Novi Sad, Niš..." name="kategorijaPosla" required>
+                        -->
+                        <label><i class="fa fa-map"></i> Grad</label>
+                        <select>
+                            <?php  $_smarty_tpl->tpl_vars['lokacija'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['lokacija']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['lokacije']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['lokacija']->key => $_smarty_tpl->tpl_vars['lokacija']->value){
+$_smarty_tpl->tpl_vars['lokacija']->_loop = true;
+?>
+                            <option value="<?php echo $_smarty_tpl->tpl_vars['lokacija']->value->mesto;?>
+"><?php echo $_smarty_tpl->tpl_vars['lokacija']->value->mesto;?>
+</option>
+                            <?php } ?>
+                        </select>
+                    </div>
+                    <div class="w3-half">
+                        <label><i class="fa fa-question"></i> Potreban izlazak na teren</label>
+                        <p><input type="radio" name="izlazakNaTeren" value="Da">Da
+                            <input type="radio" name="izlazakNaTeren" value="Ne">Ne</p>
+                    </div>
+                </div>
+                <button class="w3-button w3-dark-grey" type="submit"><i class="fa fa-search w3-margin-right"></i> Potraži</button>
+            </form>
+        </div>
+    </div>
+</header>
+
+<!-- Page content -->
+<div class="w3-content" style="max-width:1532px;">
+
+    <div class="w3-container w3-margin-top" id="rooms">
+        <h3>Pronađi majstora prema imenu i prezimenu</h3>
+    </div>
+
+    <div class="w3-row-padding">
+        <div class="w3-col m3">
+            <label><i class="fa fa-address-book"></i> Ime i prezime</label>
+            <input class="w3-input w3-border" type="text" placeholder="Na primer Petar Petrović...">
+        </div>
+        <div class="w3-col m2">
+            <label><i class="fa fa-search"></i> Potraži</label>
+            <button class="w3-button w3-block w3-black">Potraži</button>
+        </div>
+    </div>
+
+    <div class="w3-container w3-margin-top" id="rooms">
+        <h3>Najbolje ocenjeni majstor</h3>
+    </div>
+
+    <div class="w3-row-padding w3-padding-16">
+        <div class="w3-third w3-margin-bottom">
+            <img src="slike/luka.jpg" alt="Majstor" style="width:100%">
+            <div class="w3-container w3-white">
+                <!--<h3><?php echo $_smarty_tpl->tpl_vars['najboljeOcenjen']->value->ime;?>
+ <?php echo $_smarty_tpl->tpl_vars['najboljeOcenjen']->value->prezime;?>
+</h3>-->
+                <h3><?php echo $_smarty_tpl->tpl_vars['najboljeOcenjen']->value->ime;?>
+ <?php echo $_smarty_tpl->tpl_vars['najboljeOcenjen']->value->prezime;?>
+</h3>
+                <h6 class="w3-opacity">Kragujevac</h6>
+                <p>Građevinski radovi</p>
+                <button class="w3-button w3-block w3-black w3-margin-bottom">Prikaži profil</button>
+            </div>
+        </div>
+
+        <div class="w3-third w3-margin-bottom">
+            <div class="w3-container w3-white">
+                <h3><i class="fa fa-address-book"></i> Kvalitet usluge</h3>
+                <label> 9,96</label>
+                <h3><i class="fa fa-thumbs-o-up"></i> Poštovanje rokova</h3>
+                <label> 9,96</label>
+                <h3><i class="fa fa-money"></i> Povoljnost cene</h3>
+                <label> 9,96</label>
+                <br>
+                <hr>
+                <br>
+                <h3><i class="fa fa-star"></i> Ukupna ocena</h3>
+                <label> <?php echo $_smarty_tpl->tpl_vars['ocenjen']->value->ocena;?>
+</label>
+                <br>
+                <hr>
+                <br>
+                <button class="w3-button w3-block w3-black w3-margin-bottom">Ocenit ovog majstora</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="w3-container w3-margin-top" id="rooms">
+        <h3>Najnoviji oglasi</h3>
+    </div>
+
+    <div class="w3-row-padding w3-padding-16">
+        <div class="w3-third w3-margin-bottom">
+            <img src="oglas3.jpg" alt="Norway" style="width:100%">
+            <div class="w3-container w3-white">
+                <h3>Zidanje kuće</h3>
+                <h6 class="w3-opacity">Od 10.10.2018</h6>
+                <p>Kraljevo</p>
+                <button class="w3-button w3-block w3-black w3-margin-bottom">Prikaži oglas</button>
+            </div>
+        </div>
+        <div class="w3-third w3-margin-bottom">
+            <img src="oglas2.jpg" alt="Norway" style="width:100%">
+            <div class="w3-container w3-white">
+                <h3>Postavljanje krova</h3>
+                <h6 class="w3-opacity">Od 9.9.2018.</h6>
+                <p>Beograd</p><button class="w3-button w3-block w3-black w3-margin-bottom">Prikaži oglas</button>
+            </div>
+        </div>
+        <div class="w3-third w3-margin-bottom">
+            <img src="oglas3.jpg" alt="Norway" style="width:100%">
+            <div class="w3-container w3-white">
+                <h3>Zidanje kuće</h3>
+                <h6 class="w3-opacity">Od 10.10.2018</h6>
+                <p>Kraljevo</p>
+                <button class="w3-button w3-block w3-black w3-margin-bottom">Prikaži oglas</button>
+            </div>
+        </div>
+        <div class="w3-third w3-margin-bottom">
+            <img src="oglas2.jpg" alt="Norway" style="width:100%">
+            <div class="w3-container w3-white">
+                <h3>Postavljanje krova</h3>
+                <h6 class="w3-opacity">Od 9.9.2018.</h6>
+                <p>Beograd</p><button class="w3-button w3-block w3-black w3-margin-bottom">Prikaži oglas</button>
+            </div>
+        </div><div class="w3-third w3-margin-bottom">
+        <img src="oglas3.jpg" alt="Norway" style="width:100%">
+        <div class="w3-container w3-white">
+            <h3>Zidanje kuće</h3>
+            <h6 class="w3-opacity">Od 10.10.2018</h6>
+            <p>Kraljevo</p>
+            <button class="w3-button w3-block w3-black w3-margin-bottom">Prikaži oglas</button>
+        </div>
+    </div>
+        <div class="w3-third w3-margin-bottom">
+            <img src="oglas2.jpg" alt="Norway" style="width:100%">
+            <div class="w3-container w3-white">
+                <h3>Postavljanje krova</h3>
+                <h6 class="w3-opacity">Od 9.9.2018.</h6>
+                <p>Beograd</p><button class="w3-button w3-block w3-black w3-margin-bottom">Prikaži oglas</button>
+            </div>
+        </div><div class="w3-third w3-margin-bottom">
+        <img src="oglas3.jpg" alt="Norway" style="width:100%">
+        <div class="w3-container w3-white">
+            <h3>Zidanje kuće</h3>
+            <h6 class="w3-opacity">Od 10.10.2018</h6>
+            <p>Kraljevo</p>
+            <button class="w3-button w3-block w3-black w3-margin-bottom">Prikaži oglas</button>
+        </div>
+    </div>
+        <div class="w3-third w3-margin-bottom">
+            <img src="oglas2.jpg" alt="Norway" style="width:100%">
+            <div class="w3-container w3-white">
+                <h3>Postavljanje krova</h3>
+                <h6 class="w3-opacity">Od 9.9.2018.</h6>
+                <p>Beograd</p><button class="w3-button w3-block w3-black w3-margin-bottom">Prikaži oglas</button>
+            </div>
+        </div>
+        <div class="w3-third w3-margin-bottom">
+            <img src="oglas2.jpg" alt="Norway" style="width:100%">
+            <div class="w3-container w3-white">
+                <h3>Postavljanje krova</h3>
+                <h6 class="w3-opacity">Od 9.9.2018.</h6>
+                <p>Beograd</p><button class="w3-button w3-block w3-black w3-margin-bottom">Prikaži oglas</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="w3-container w3-margin-top" id="rooms">
+        <h3>Dostupni majstori za rad</h3>
+    </div>
+
+    <div class="w3-row-padding">
+        <div class="w3-responsive">
+            <table class="w3-table-all">
+                <tr>
+                    <th>Ime i prezime</th>
+                    <th>Lokacija</th>
+                    <th>Kategorija</th>
+                    <th>Prosecna ocena</th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <td>Petar Petrovic</td>
+                    <td>Kragujevac</td>
+                    <td>Građevinski radovi</td>
+                    <td>9,96</td>
+                    <td><button class="w3-button w3-block w3-black w3-margin-bottom">Prikaži profil</button></td>
+                </tr>
+                <?php  $_smarty_tpl->tpl_vars['oM'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['oM']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['onlineMajstor']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['oM']->key => $_smarty_tpl->tpl_vars['oM']->value){
+$_smarty_tpl->tpl_vars['oM']->_loop = true;
+?>
+                <tr>
+                    
+                    <td><?php echo $_smarty_tpl->tpl_vars['oM']->value->ime;?>
+ <?php echo $_smarty_tpl->tpl_vars['oM']->value->prezime;?>
+</td>
+                    <td>Kragujevac</td>
+                    <td><?php  $_smarty_tpl->tpl_vars['z'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['z']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['oM']->value->zanati; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['z']->key => $_smarty_tpl->tpl_vars['z']->value){
+$_smarty_tpl->tpl_vars['z']->_loop = true;
+?>z->tip<?php } ?></td>
+                </tr>
+                <?php } ?>
+                
+            </table>
+        </div>
+    </div>
+
+    <!-- End page content -->
+</div>
+
+<!-- Footer -->
+<footer class="w3-padding-32 w3-black w3-center w3-margin-top">
+
+    <p>Powered by HypeR</p>
+    <p>2018</p>
+</footer>
+
+<!-- Add Google Maps
+<script>
+    function myMap()
+    {
+        myCenter=new google.maps.LatLng(41.878114, -87.629798);
+        var mapOptions= {
+            center:myCenter,
+            zoom:12, scrollwheel: false, draggable: false,
+            mapTypeId:google.maps.MapTypeId.ROADMAP
+        };
+        var map=new google.maps.Map(document.getElementById("googleMap"),mapOptions);
+
+        var marker = new google.maps.Marker({
+            position: myCenter,
+        });
+        marker.setMap(map);
+    }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap"></script>
+
+To use this code on your website, get a free API key from Google.
+Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
+-->
+
+</body>
+</html>
+<?php }} ?>
